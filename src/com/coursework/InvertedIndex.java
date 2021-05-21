@@ -11,7 +11,7 @@ public class InvertedIndex {
     }
 
     private static Map<String, List<String>> sequentialBuild(List<File> files) {
-        InvertedIndexBuilder builder = new InvertedIndexBuilder(files, 0, files.size());
+        InvertedIndexBuilder builder = new InvertedIndexBuilder(files);
 
         return builder.buildInvertedIndex();
     }

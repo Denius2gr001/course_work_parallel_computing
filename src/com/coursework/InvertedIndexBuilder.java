@@ -7,26 +7,18 @@ import java.util.*;
 public class InvertedIndexBuilder {
     private static Scanner in;
     private final List<File> files;
-    private final int startPosition;
-    private final int endPosition;
 
-    public InvertedIndexBuilder(List<File> files, int startPosition, int endPosition) {
+    public InvertedIndexBuilder(List<File> files) {
         this.files = files;
-
-        this.startPosition = startPosition >=0 && startPosition < files.size() ? startPosition : 0;
-        this.endPosition = endPosition >= startPosition && endPosition > 0 && endPosition <= files.size()
-                ? endPosition : files.size() - 1;
     }
 
     public Map<String, List<String>> buildInvertedIndex() {
         Map<String, List<String>> invertedIndex = new HashMap<>();
 
         try {
-            for (int i = startPosition; i < endPosition; i++) {
-                File currentFile = files.get(i);
-
+            for (File file : files) {
                 StringBuilder fileContent = new StringBuilder();
-                in = new Scanner(currentFile);
+                in = new Scanner(file);
                 while (in.hasNext()) {
                     fileContent.append(in.nextLine());
                 }
@@ -38,10 +30,10 @@ public class InvertedIndexBuilder {
                     }
 
                     if (invertedIndex.containsKey(word)) {
-                        invertedIndex.get(word).add(currentFile.getName());
+                        invertedIndex.get(word).add(file.getName());
                     } else {
                         List<String> positionsList = new LinkedList<>();
-                        positionsList.add(currentFile.getName());
+                        positionsList.add(file.getName());
 
                         invertedIndex.put(word, positionsList);
                     }

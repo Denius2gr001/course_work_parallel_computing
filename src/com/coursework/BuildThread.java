@@ -7,19 +7,17 @@ import java.util.Map;
 
 public class BuildThread extends Thread {
     private final List<File> files;
-    private final int startPosition;
-    private final int endPosition;
+    private final int threadIndex;
     private Map<String, List<String>> invertedIndexPart;
 
-    public BuildThread(List<File> files, int startPosition, int endPosition) {
+    public BuildThread(List<File> files, int threadIndex) {
         this.files = files;
-        this.startPosition = startPosition;
-        this.endPosition = endPosition;
+        this.threadIndex = threadIndex;
     }
 
     @Override
     public void run() {
-        InvertedIndexBuilder builder = new InvertedIndexBuilder(files, startPosition, endPosition);
+        InvertedIndexBuilder builder = new InvertedIndexBuilder(files);
 
         invertedIndexPart = builder.buildInvertedIndex();
     }

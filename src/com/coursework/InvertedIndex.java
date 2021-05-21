@@ -6,15 +6,17 @@ import java.util.Map;
 
 public class InvertedIndex {
 
-    public static Map<String, List<String>> build(File[] files, int threadsNum) {
+    public static Map<String, List<String>> build(List<File> files, int threadsNum) {
         return threadsNum == 1 ? sequentialBuild(files) : parallelBuild(files, threadsNum);
     }
 
-    private static Map<String, List<String>> sequentialBuild(File[] files) {
-        return null;
+    private static Map<String, List<String>> sequentialBuild(List<File> files) {
+        InvertedIndexBuilder builder = new InvertedIndexBuilder(files, 0, files.size());
+
+        return builder.buildInvertedIndex();
     }
 
-    private static Map<String, List<String>> parallelBuild(File[] files, int threadsNum) {
+    private static Map<String, List<String>> parallelBuild(List<File> files, int threadsNum) {
         return null;
     }
 }

@@ -13,7 +13,7 @@ public class UserInputHandler {
     private static final Calendar CALENDAR = new GregorianCalendar();
     private static final int EXIT_CODE = -1;
     private static final int MIN_THREADS_NUM = 1;
-    private static final int MAX_THREADS_NUM = 1;
+    private static final int MAX_THREADS_NUM = 50;
 
     public static int getThreadsNum() {
         String prompt = "Please, provide the number of threads to build inverted index: (from " +
@@ -29,7 +29,7 @@ public class UserInputHandler {
         while (true) {
             String input = IN.nextLine();
 
-            if (!input.matches("\\d+")) {
+            if (input.matches("\\d+")) {
                 boolean isCorrectThreadsNum = parseInt(input) >= MIN_THREADS_NUM && parseInt(input) <= MAX_THREADS_NUM;
                 if (isCorrectThreadsNum || parseInt(input) == EXIT_CODE) {
                     return parseInt(input);

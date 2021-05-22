@@ -70,6 +70,7 @@ public class UserInputHandler {
                 indexItem.append("\n");
 
                 writer.write(indexItem.toString());
+                writer.flush();
             }
 
         } catch (IOException ex) {

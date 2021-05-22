@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 import static java.lang.Integer.parseInt;
 
-public class UserInputHandler {
+public class UserUtils {
     private static final Scanner IN = new Scanner(System.in);
     private static final Calendar CALENDAR = new GregorianCalendar();
     private static final int EXIT_CODE = -1;

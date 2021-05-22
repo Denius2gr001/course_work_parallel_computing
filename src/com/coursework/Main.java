@@ -20,7 +20,7 @@ public class Main {
             return;
         }
 
-        int threadsNum = UserInputHandler.getThreadsNum();
+        int threadsNum = UserUtils.getThreadsNum();
         if (threadsNum == EXIT_CODE) {
             System.out.println("Exiting...");
             return;
@@ -33,8 +33,8 @@ public class Main {
         System.out.println("The inverted index built for " + (finishMoment - startMoment) + "ms" );
         System.out.println("(Index size: " + invertedIndex.size() + " items)");
 
-        if (UserInputHandler.isWritingToTheFileRequired()) {
-            boolean wasWritten = UserInputHandler.createInvertedIndexFile(invertedIndex, threadsNum);
+        if (UserUtils.isWritingToTheFileRequired()) {
+            boolean wasWritten = UserUtils.createInvertedIndexFile(invertedIndex, threadsNum);
 
             if (wasWritten) {
                 System.out.println("Inverted index was written to the file!");

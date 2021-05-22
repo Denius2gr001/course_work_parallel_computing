@@ -17,9 +17,12 @@ public class BuildThread extends Thread {
 
     @Override
     public void run() {
-        InvertedIndexBuilder builder = new InvertedIndexBuilder(files);
+        System.out.println("Thread " + threadIndex + " started working ...");
 
+        InvertedIndexBuilder builder = new InvertedIndexBuilder(files);
         invertedIndexPart = builder.buildInvertedIndex();
+
+        System.out.println("Thread " + threadIndex + " finished working!");
     }
 
     public Map<String, List<String>> getInvertedIndexPart() {

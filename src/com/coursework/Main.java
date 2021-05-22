@@ -34,7 +34,13 @@ public class Main {
         System.out.println("(Index size: " + invertedIndex.size() + " items)");
 
         if (UserInputHandler.isWritingToTheFileRequired()) {
-            UserInputHandler.createInvertedIndexFile(invertedIndex, threadsNum);
+            boolean wasWritten = UserInputHandler.createInvertedIndexFile(invertedIndex, threadsNum);
+
+            if (wasWritten) {
+                System.out.println("Inverted index was written to the file!");
+            } else {
+                System.out.println("Inverted index wasn't written to the file due to some errors!");
+            }
         }
     }
 }

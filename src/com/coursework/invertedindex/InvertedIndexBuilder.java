@@ -1,4 +1,6 @@
-package com.coursework;
+package com.coursework.invertedindex;
+
+import com.coursework.thread.BuilderThread;
 
 import java.io.File;
 import java.util.HashMap;
@@ -21,24 +23,24 @@ public class InvertedIndexBuilder {
     private static Map<String, List<String>> parallelBuild(List<File> files, int threadsNum) {
         Map<String, List<String>> invertedIndex = new HashMap<>();
 
-        BuildThread[] threads = new BuildThread[threadsNum];
+        BuilderThread[] builderThreads = new BuilderThread[threadsNum];
         for (int threadId = 0; threadId < threadsNum; threadId++) {
             int startPosition = files.size() / threadsNum * threadId;
             int endPosition = threadId == (threadsNum - 1) ? files.size() : files.size() / threadsNum * (threadId + 1);
 
-            threads[threadId] = new BuildThread(files.subList(startPosition, endPosition), threadId);
-            threads[threadId].start();
+            builderThreads[threadId] = new BuilderThread(files.subList(startPosition, endPosition), threadId);
+            builderThreads[threadId].start();
         }
 
         try {
-            for (BuildThread thread : threads) {
+            for (BuilderThread thread : builderThreads) {
                 thread.join();
             }
         } catch (InterruptedException ex) {
             ex.printStackTrace();
         }
 
-        for (BuildThread thread : threads) {
+        for (BuilderThread thread : builderThreads) {
             addNewPartToIndex(invertedIndex, thread.getInvertedIndexPart());
         }
 

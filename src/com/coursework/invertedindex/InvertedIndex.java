@@ -1,4 +1,4 @@
-package com.coursework;
+package com.coursework.invertedindex;
 
 import java.util.ArrayList;
 import java.util.List;

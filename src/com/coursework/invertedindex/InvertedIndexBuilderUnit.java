@@ -1,8 +1,15 @@
-package com.coursework;
+package com.coursework.invertedindex;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.*;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
 
 public class InvertedIndexBuilderUnit {
     private final List<File> files;

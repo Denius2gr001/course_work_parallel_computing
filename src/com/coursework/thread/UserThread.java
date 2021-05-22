@@ -1,16 +1,18 @@
-package com.coursework;
+package com.coursework.thread;
+
+import com.coursework.invertedindex.InvertedIndex;
 
 import java.util.List;
 import java.util.Random;
 
-public class UseThread extends Thread {
+public class UserThread extends Thread {
     private static final int USE_COUNT = 10;
     private final int threadId;
     private final Random random = new Random();
     private final InvertedIndex invertedIndex;
     private final List<String> dictionary;
 
-    public UseThread(InvertedIndex invertedIndex, List<String> dictionary, int threadId) {
+    public UserThread(InvertedIndex invertedIndex, List<String> dictionary, int threadId) {
         this.invertedIndex = invertedIndex;
         this.dictionary = dictionary;
         this.threadId = threadId;

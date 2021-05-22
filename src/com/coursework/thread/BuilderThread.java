@@ -1,16 +1,18 @@
-package com.coursework;
+package com.coursework.thread;
+
+import com.coursework.invertedindex.InvertedIndexBuilderUnit;
 
 import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class BuildThread extends Thread {
+public class BuilderThread extends Thread {
     private final List<File> files;
     private final int threadIndex;
     private Map<String, List<String>> invertedIndexPart;
 
-    public BuildThread(List<File> files, int threadIndex) {
+    public BuilderThread(List<File> files, int threadIndex) {
         this.files = files;
         this.threadIndex = threadIndex;
     }

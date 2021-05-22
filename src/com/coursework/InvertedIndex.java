@@ -24,7 +24,7 @@ public class InvertedIndex {
         BuildThread[] threads = new BuildThread[threadsNum];
         for (int threadId = 0; threadId < threadsNum; threadId++) {
             int startPosition = files.size() / threadsNum * threadId;
-            int endPosition = files.size() / threadsNum * (threadId + 1);
+            int endPosition = threadId == (threadsNum - 1) ? files.size() : files.size() / threadsNum * (threadId + 1);
 
             threads[threadId] = new BuildThread(files.subList(startPosition, endPosition), threadId);
             threads[threadId].start();

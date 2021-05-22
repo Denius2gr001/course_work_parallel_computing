@@ -6,6 +6,7 @@ import java.util.*;
 public class Main {
     private final static String SOURCE = "source";
     private final static int EXIT_CODE = -1;
+    private final static int USERS_NUM = 5;
 
     public static void main(String[] args) {
         File sourceFolder = new File(SOURCE);
@@ -42,5 +43,21 @@ public class Main {
                 System.out.println("Inverted index wasn't written to the file due to some errors!");
             }
         }
+
+        System.out.println("Starting using of the index...");
+        UseThread[] useThreads = new UseThread[USERS_NUM];
+        for (int i = 0; i < USERS_NUM; i++) {
+            useThreads[i] = new UseThread(new InvertedIndex(invertedIndex), new ArrayList<>(invertedIndex.keySet()), i);
+            useThreads[i].start();
+        }
+
+        try {
+            for (UseThread useThread : useThreads) {
+                useThread.join();
+            }
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
+        System.out.println("Using of the index finished!");
     }
 }

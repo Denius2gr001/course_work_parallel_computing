@@ -27,7 +27,7 @@ public class Main {
         }
 
         long startMoment = System.currentTimeMillis();
-        Map<String, List<String>> invertedIndex = InvertedIndex.build(files, threadsNum);
+        Map<String, List<String>> invertedIndex = InvertedIndexBuilder.build(files, threadsNum);
         long finishMoment = System.currentTimeMillis();
 
         System.out.println("The inverted index built for " + (finishMoment - startMoment) + "ms" );

@@ -19,8 +19,8 @@ public class BuildThread extends Thread {
     public void run() {
         System.out.println("Thread " + threadIndex + " started working ...");
 
-        InvertedIndexBuilder builder = new InvertedIndexBuilder(files);
-        invertedIndexPart = builder.buildInvertedIndex();
+        InvertedIndexBuilderUnit builderUnit = new InvertedIndexBuilderUnit(files);
+        invertedIndexPart = builderUnit.getInvertedIndex();
 
         System.out.println("Thread " + threadIndex + " finished working!");
     }

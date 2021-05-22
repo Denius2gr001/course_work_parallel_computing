@@ -47,7 +47,7 @@ public class UserUtils {
         return answer.equalsIgnoreCase("yes") || answer.equalsIgnoreCase("y");
     }
 
-    public static boolean createInvertedIndexFile(Map<String, List<String>> invertedIndex, int threadsNum) {
+    public static String createInvertedIndexFile(Map<String, List<String>> invertedIndex, int threadsNum) {
         String fileName = "IndexFile_" + threadsNum + "threads_" +
                 CALENDAR.get(Calendar.YEAR) +
                 CALENDAR.get(Calendar.MONTH) +
@@ -75,9 +75,9 @@ public class UserUtils {
 
         } catch (IOException ex) {
             System.out.println("Error while writing the inverted index to the file!");
-            return false;
+            return null;
         }
 
-        return true;
+        return fileName;
     }
 }

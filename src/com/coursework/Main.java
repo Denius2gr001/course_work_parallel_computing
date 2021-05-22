@@ -35,10 +35,10 @@ public class Main {
         System.out.println("(Index size: " + invertedIndex.size() + " items)");
 
         if (UserUtils.isWritingToTheFileRequired()) {
-            boolean wasWritten = UserUtils.createInvertedIndexFile(invertedIndex, threadsNum);
+            String fileName = UserUtils.createInvertedIndexFile(invertedIndex, threadsNum);
 
-            if (wasWritten) {
-                System.out.println("Inverted index was written to the file!");
+            if (fileName != null) {
+                System.out.println("Inverted index was written to the file [" + fileName + "]");
             } else {
                 System.out.println("Inverted index wasn't written to the file due to some errors!");
             }

@@ -1,13 +1,13 @@
-#Parallel computing 3td course
+# Parallel computing 3td course
 Program for building and using inverted index containing multithreading mechanisms
 
-##Prerequisites
+## Prerequisites
 Java 1.8+ (Java 8+)
 
 IntelliJ IDEA (optional)
 
-##How To Run
-###Using CLI
+## How To Run
+### Using CLI
 1) Init an empty repo: ```git init```
 2) Clone this repo: ```git clone https://github.com/Denius2gr001/course_work_parallel_computing```
 3) Go to the project folder: ```cd course_work_parallel_computing```
@@ -21,7 +21,7 @@ IntelliJ IDEA (optional)
 5) Run the program: ```java -classpath ./bin com.coursework.CourseWork``` 
 6) Follow the program instructions
 
-###Using IntelliJ IDEA
+### Using IntelliJ IDEA
 1) Init an empty repo: ```git init```
 2) Clone this repo: ```git clone https://github.com/Denius2gr001/course_work_parallel_computing```
 3) Open cloned directory via IntelliJ
@@ -29,5 +29,5 @@ IntelliJ IDEA (optional)
 5) Run the program ```Shift + F10```
 6) Follow the program instructions
 
-##How to run with your files
+## How to run with your files
 Put your text files into ```source``` directory and run the program as described above

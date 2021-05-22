@@ -5,8 +5,8 @@ import java.io.FileNotFoundException;
 import java.util.*;
 
 public class InvertedIndexBuilder {
-    private static Scanner in;
     private final List<File> files;
+    private Scanner in;
 
     public InvertedIndexBuilder(List<File> files) {
         this.files = files;
